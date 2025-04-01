@@ -41,28 +41,7 @@
     <img src="TokenImage.png" alt="TokenImage" width="600"/>
 </a>
 
-```.dotenv
-SPRING_PROFILES_ACTIVE="dev"
-
-JWT_SECRET_KEY="Your secret key generate token"
-JWT_SECRET_KEY_LOCAL="Your secret key generate token"
-
-POSTGRES_DB="Your database"
-POSTGRES_USER="Your username database"
-POSTGRES_PASSWORD="Your password database"
-
-PORT="8080"
-POSTGRES_DB_URL="jdbc:postgresql://db-task-management-system/${POSTGRES_DB}"
-POSTGRES_DB_USERNAME="${POSTGRES_USER}"
-POSTGRES_DB_PASSWORD="${POSTGRES_PASSWORD}"
-
-PORT_LOCAL="8181"
-POSTGRES_DB_URL_LOCAL="jdbc:postgresql://db-task-management-system/${POSTGRES_DB}"
-POSTGRES_DB_USERNAME_LOCAL=${POSTGRES_USER}"
-POSTGRES_DB_PASSWORD_LOCAL="${POSTGRES_PASSWORD}"
-```
-
-Также для удобства вы можете скачать архив с файлами `.env` и `docker-compose.yml`, который содержит необходимые
+Для проверки раьотоспособности эндпоинтов вы можете скачать архив с файлами `.env` и `docker-compose.yml`, который содержит необходимые
 настройки для запуска приложения.
 
 [![Скачать docker-compose.yml](https://img.shields.io/badge/Скачать%20docker--compose.yml-blue)](https://drive.google.com/drive/folders/1ztmCCncx75RUAmWTNZv3hBcFH6u-fr1M?usp=drive_link)
