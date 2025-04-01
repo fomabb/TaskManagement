@@ -99,8 +99,8 @@ docker compose up
 | METHOD | PATH                                      | DESCRIPTION                       |
 |--------|-------------------------------------------|-----------------------------------|
 | GET    | /api/v1/tasks                             | Получить все задачи               |
-| GET    | /api/v1/tasks/{taskId}                    | Получить задачу по ее ID          |
-| GET    | /api/v1/tasks/comments/by-taskId/{taskId} | Получить комментарии ее ID        |
+| GET    | /api/v1/tasks/{taskId}                    | Получить задачу по ID          |
+| GET    | /api/v1/tasks/comments/by-taskId/{taskId} | Получить комментарии по ID        |
 | GET    | /api/v1/tasks/comments/author/{authorId}  | Получить комментарии по ID автора |
 | GET    | /api/v1/tasks/assignee/{assigneeId}       | Получить задачи по ID исполнителя |
 
@@ -114,7 +114,7 @@ docker compose up
 | PATCH  | /api/v1/user/comments/update     | Обновление содержимого комментария                     |
 | PATCH  | /api/v1/user/tasks/update-status | Обновление задачи пользователя                         |
 | GET    | /api/v1/show-user                | Получить список всех пользователей без администраторов |
-| GET    | /api/v1/user/{userId}            | Получить информацию о пользователе по его ID           |
+| GET    | /api/v1/user/{userId}            | Получить информацию о пользователе по ID           |
 
 ###
 
