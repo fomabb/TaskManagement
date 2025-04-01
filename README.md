@@ -37,8 +37,8 @@
 
 [Генерация секретного JWT ключа](https://openreplay.com/tools/token-generator/): длина ключа `64`
 
-<a href="materials/TokenImage.png">
-    <img src="materials/TokenImage.png" alt="TokenImage" width="600"/>
+<a href="TokenImage.png">
+    <img src="TokenImage.png" alt="TokenImage" width="600"/>
 </a>
 
 ```.dotenv
@@ -110,8 +110,8 @@ docker compose up
 
 ## Диаграмма ER для модели данных
 
-<a href="materials/management_db_schema.png">
-    <img src="materials/management_db_schema.png" alt="db_diagram" width="600"/>
+<a href="management_db_schema.png">
+    <img src="management_db_schema.png" alt="db_diagram" width="600"/>
 </a>
 
 ## RESTful API
