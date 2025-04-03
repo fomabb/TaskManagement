@@ -29,9 +29,40 @@
 1. **Docker**: Убедитесь, что Docker установлен на вашем компьютере. Вы можете скачать и установить его
    с [официального сайта Docker](https://www.docker.com/get-started).
 
-## Скачивание архива для запуска контейнера с рабочим приложением
+## Запуск или скачивание файла `docker-compose.yml` и `.env`
 
-Для проверки раьотоспособности эндпоинтов вы можете скачать архив с файлами `.env` и `docker-compose.yml`, который содержит необходимые
+Чтобы запустить приложение с помощью docker-compose, необходимо клонировать проект к себе на компьютер, после чего
+создать
+в корне проекта файл `.env`, заполнить своими данными и указать с какой среды запускать `local` или `dev`:
+
+[Генерация секретного JWT ключа](https://openreplay.com/tools/token-generator/): длина ключа `64`
+
+<a href="materials/TokenImage.png">
+    <img src="materials/TokenImage.png" alt="TokenImage" width="600"/>
+</a>
+
+```.dotenv
+SPRING_PROFILES_ACTIVE="dev"
+
+JWT_SECRET_KEY="Your secret key generate token"
+JWT_SECRET_KEY_LOCAL="Your secret key generate token"
+
+POSTGRES_DB="Your database"
+POSTGRES_USER="Your username database"
+POSTGRES_PASSWORD="Your password database"
+
+PORT="8080"
+POSTGRES_DB_URL="jdbc:postgresql://db-task-management-system/${POSTGRES_DB}"
+POSTGRES_DB_USERNAME="${POSTGRES_USER}"
+POSTGRES_DB_PASSWORD="${POSTGRES_PASSWORD}"
+
+PORT_LOCAL="8181"
+POSTGRES_DB_URL_LOCAL="jdbc:postgresql://db-task-management-system/${POSTGRES_DB}"
+POSTGRES_DB_USERNAME_LOCAL=${POSTGRES_USER}"
+POSTGRES_DB_PASSWORD_LOCAL="${POSTGRES_PASSWORD}"
+```
+
+Также для удобства вы можете скачать архив с файлами `.env` и `docker-compose.yml`, который содержит необходимые
 настройки для запуска приложения.
 
 [![Скачать docker-compose.yml](https://img.shields.io/badge/Скачать%20docker--compose.yml-blue)](https://drive.google.com/drive/folders/1ztmCCncx75RUAmWTNZv3hBcFH6u-fr1M?usp=drive_link)
@@ -79,8 +110,8 @@ docker compose up
 
 ## Диаграмма ER для модели данных
 
-<a href="management_db_schema.png">
-    <img src="management_db_schema.png" alt="db_diagram" width="600"/>
+<a href="materials/management_db_schema.png">
+    <img src="materials/management_db_schema.png" alt="db_diagram" width="600"/>
 </a>
 
 ## RESTful API
@@ -96,13 +127,16 @@ docker compose up
 
 **2. Описание API общих методов для управления задачами**
 
-| METHOD | PATH                                      | DESCRIPTION                       |
-|--------|-------------------------------------------|-----------------------------------|
-| GET    | /api/v1/tasks                             | Получить все задачи               |
-| GET    | /api/v1/tasks/{taskId}                    | Получить задачу по ID          |
-| GET    | /api/v1/tasks/comments/by-taskId/{taskId} | Получить комментарии по ID        |
-| GET    | /api/v1/tasks/comments/author/{authorId}  | Получить комментарии по ID автора |
-| GET    | /api/v1/tasks/assignee/{assigneeId}       | Получить задачи по ID исполнителя |
+| METHOD | PATH                                                 | DESCRIPTION                            |
+|--------|------------------------------------------------------|----------------------------------------|
+| PUT    | /api/v1/tasks/users/track-time                       | Затрекать время                        |
+| GET    | /api/v1/tasks                                        | Получить все задачи                    |
+| GET    | /api/v1/tasks/{taskId}                               | Получить задачу по ее ID               |
+| GET    | /api/v1/tasks/comments/by-taskId/{taskId}            | Получить комментарии ее ID             |
+| GET    | /api/v1/tasks/comments/author/{authorId}             | Получить комментарии по ID автора      |
+| GET    | /api/v1/tasks/assignee/{assigneeId}                  | Получить задачи по ID исполнителя      |
+| GET    | /api/v1/tasks/user/{userId}/show-time-tracking-board | По ID исполнителя доску дя трека задач |
+| GET    | /api/v1/tasks/by-weekday                             | Просмотр задач за неделю               |
 
 ###
 
@@ -114,7 +148,7 @@ docker compose up
 | PATCH  | /api/v1/user/comments/update     | Обновление содержимого комментария                     |
 | PATCH  | /api/v1/user/tasks/update-status | Обновление задачи пользователя                         |
 | GET    | /api/v1/show-user                | Получить список всех пользователей без администраторов |
-| GET    | /api/v1/user/{userId}            | Получить информацию о пользователе по ID           |
+| GET    | /api/v1/user/{userId}            | Получить информацию о пользователе по его ID           |
 
 ###
 
